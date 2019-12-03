@@ -27,8 +27,8 @@ public class ExampleController {
         list.add(item);
     }
 
-    @RequestMapping(path = "/userinfo", method = RequestMethod.POST)
-    public synchronized Object userinfo(@RequestBody String body, HttpServletRequest req) throws JsonProcessingException {
+    @RequestMapping(path = "/userinfo", method = RequestMethod.GET)
+    public synchronized Object userinfo(HttpServletRequest req) throws JsonProcessingException {
         Map<String,Object> retMap = new HashMap<>();
         String ldap = req.getHeader("X-LDAP");
         retMap.put("name", ldap);
